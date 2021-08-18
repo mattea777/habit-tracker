@@ -1,5 +1,4 @@
-<p>Component works!</p>
-<!-- <mat-card (click)='habitClick()'>
+<mat-card (click)='habitClick()'>
     <mat-card-title>
       <mat-icon
         class="habit-icon"
@@ -8,7 +7,7 @@
         aria-label="circle check mark icon"
         >check_circle_outline</mat-icon
       >
-      Walking
+      {{habit.name}}
     </mat-card-title>
     <div class="detail-options">
       <mat-icon
@@ -18,16 +17,15 @@
         >edit</mat-icon
       >
       <mat-icon class="habit-icon" color="warn" (click)='onDelete()'
-        >remove_circle</mat-icon
-      >
+        >remove_circle</mat-icon>
     </div>
     <mat-card-content>
       <p>
-        <span class="detail-label">Frequency:</span> Frequency
+        <span class="detail-label">Frequency:</span> {{habit.frequency}}
       </p>
       <p>
         <span class="detail-label">Why is this habit important to me?</span>
-        <br />Lorem Ipsum
+        <br />{{habit.description}}
       </p>
     </mat-card-content>
-  </mat-card> -->
+  </mat-card> 
