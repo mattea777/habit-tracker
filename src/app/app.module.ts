@@ -8,8 +8,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatToolbarModule } from '@angular/material/toolbar';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,7 +26,8 @@ import { AppComponent } from './app.component';
     MatIconModule,
     MatInputModule,
     MatSelectModule,
-    MatToolbarModule,
+    MatToolbarModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent],
