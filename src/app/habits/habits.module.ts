@@ -19,9 +19,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     HabitsComponent
   ],
   imports: [
-    CommonModule,
-    HabitsRoutingModule,
-    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
