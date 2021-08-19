@@ -9,12 +9,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { HabitRoutingModule } from './habit/habit-routing.module'
+import { HabitRoutingModule } from './habit/habit-routing.module';
+import { AddComponent } from './add/add.component'
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AddComponent
   ],
   imports: [
     BrowserModule,
