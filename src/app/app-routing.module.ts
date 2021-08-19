@@ -10,11 +10,10 @@ const routes: Routes = [
   },
 { path: 'habits', loadChildren: () => import('./habit/habit.module').then(m => m.HabitModule) },
 {
-  path: 'habits/:id/edit', component: AddComponent
-},
-{
   path: 'add', component: AddComponent
 }
+
+
 ];
 
 @NgModule({

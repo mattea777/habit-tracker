@@ -16,7 +16,7 @@
           <mat-icon
             class="habit-icon"
             color="primary"
-            routerLink='edit'
+            [routerLink]="[i, 'edit']"
             >edit</mat-icon
           >
           <mat-icon class="habit-icon" color="warn" (click)="onDelete(i)"

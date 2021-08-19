@@ -11,6 +11,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { HabitRoutingModule } from './habit/habit-routing.module';
 import { AddComponent } from './add/add.component'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -28,6 +30,8 @@ import { AddComponent } from './add/add.component'
     MatCardModule,
     MatInputModule,
     MatSelectModule,
+    FormsModule, 
+    ReactiveFormsModule
 
     
   ],
