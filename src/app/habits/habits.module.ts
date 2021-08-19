@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { HabitsRoutingModule } from './habits-routing.module';
 import { HabitsComponent } from './habits.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -26,7 +24,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatIconModule,
     MatInputModule,
     MatSelectModule,
-    MatToolbarModule
+    MatToolbarModule,
+    HabitsRoutingModule,
+    CommonModule
   ]
 })
 export class HabitsModule { }
