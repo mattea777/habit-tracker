@@ -9,6 +9,11 @@
             "name": "Read 100 pages from a book",
             "frequency": "Daily",
             "description": "This habit makes my kitchen look nice and makes my day better the next morning."
+        },
+        {
+            "name": "Read 200 pages from a book",
+            "frequency": "Daily",
+            "description": "This habit makes my kitchen look nice and makes my day better the next morning."
         }
     ]
 }

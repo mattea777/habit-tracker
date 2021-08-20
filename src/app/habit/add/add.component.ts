@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
-import { HABITS } from '../data/habits';
+import { HABITS } from '../../data/habits';
 import { Habit } from 'src/models/habit';
 
 
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html',
-  styleUrls: ['../app.component.css']
+  styleUrls: ['./add.component.css']
 })
 export class AddComponent implements OnInit {
 
