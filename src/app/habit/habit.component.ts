@@ -5,7 +5,7 @@ import { EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { HABITS } from '../data/habits';
 import { HabitService } from '../_services/habit.service';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-habit',
@@ -14,20 +14,18 @@ import { Subscription } from 'rxjs';
 })
 export class HabitComponent implements OnInit,OnDestroy {
   public habits!: Habit[];
-  habits$!: Subscription;
+  habits$!: Observable<Habit[]>;
 
   constructor(public router: Router,
     private habitService: HabitService) {}
 
   ngOnInit(): void {
-    this.habits$ = this.habitService.getHabits().subscribe(res => {this.habits = res})
+    this.habits$ = this.habitService.getHabits()
 
 
   }
   ngOnDestroy(): void{
-    console.log(this.habits$)
-    this.habits$.unsubscribe()
-    console.log(this.habits$)
+    
   }
 
   public onDelete(index: number) {

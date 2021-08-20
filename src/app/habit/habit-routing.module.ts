@@ -4,6 +4,8 @@ import { AddComponent } from './add/add.component';
 import { HabitComponent } from './habit.component';
 import { AppComponent } from '../app.component'
 
+
+
 const routes: Routes = [{ path: '', component: HabitComponent },
 {
   path: ':id/edit', component:AddComponent
