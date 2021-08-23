@@ -11,7 +11,7 @@ const routes: Routes = [{ path: '', component: HabitComponent },
   path: ':id/edit', component:AddComponent
 },
 {
-  path:'/add', component:AddComponent
+  path:'add', component:AddComponent
 }
 ];
 
