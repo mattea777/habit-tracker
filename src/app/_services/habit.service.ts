@@ -1,7 +1,24 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Habit } from 'src/models/habit';
+
+
+@Injectable({
+  providedIn: 'root'
+})
+export class HeaderInterceptor implements HttpInterceptor {
+  
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    const authReq = req.clone({
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    });
+    console.log('HTTP Interceptor', authReq)
+    return next.handle(req);
+  }
+}
 
 @Injectable({
   providedIn: 'root'
@@ -13,11 +30,10 @@ export class HabitService {
 
   getHabits(): Observable<any>{
     //insert true type in lieu of any
-    return this.http.get<any>(`${this.API_ROOT}/habits`, {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      }),
-      observe: 'body'
-    })
+    return this.http.get<Habit>(`${this.API_ROOT}/habits`,{observe:'body'})
   }
-}
+
+  getHabit(id: string | null): Observable<Habit>{
+    return this.http.get<Habit>(`${this.API_ROOT}/habits/${id}`,{observe:'body'})
+    }
+  }
