@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AddComponent } from './habit/add/add.component';
+import { HabitComponent } from './habit/habit.component';
+
 
 const routes: Routes = [
   {
@@ -8,7 +9,7 @@ const routes: Routes = [
     redirectTo: '',
     pathMatch: 'full'
   },
-{ path: 'habits', loadChildren: () => import('./habit/habit.module').then(m => m.HabitModule) },
+{ path: 'habit', loadChildren: () => import('./habit/habit.module').then(m => m.HabitModule) },
 
 
 

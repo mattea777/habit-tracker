@@ -36,4 +36,17 @@ export class HabitService {
   getHabit(id: string | null): Observable<Habit>{
     return this.http.get<Habit>(`${this.API_ROOT}/habits/${id}`,{observe:'body'})
     }
+
+  editHabit(id: string | null, habit: Habit): Observable<any>{
+    return this.http.put<any>(`${this.API_ROOT}/habits/${id}`, habit)
+    
+  }
+
+  addHabit(habit: Habit): Observable<any>{
+    return this.http.post<any>(`${this.API_ROOT}/habits/`, habit)
+  }
+
+  deleteHabit(id: string | null): Observable<any>{
+    return this.http.delete<any>(`${this.API_ROOT}/habits/${id}`)
+  }
   }

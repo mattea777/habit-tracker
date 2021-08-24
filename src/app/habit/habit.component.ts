@@ -2,8 +2,7 @@ import { Component, OnInit, Input, Output, OnDestroy } from '@angular/core';
 import { Habit } from 'src/models/habit';
 import { FormControl, FormGroup } from '@angular/forms';
 import { EventEmitter } from '@angular/core';
-import { Router } from '@angular/router';
-import { HABITS } from '../data/habits';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HabitService } from '../_services/habit.service';
 import { Observable, Subscription } from 'rxjs';
 
@@ -15,9 +14,11 @@ import { Observable, Subscription } from 'rxjs';
 export class HabitComponent implements OnInit,OnDestroy {
   public habits!: Habit[];
   habits$!: Observable<Habit[]>;
+  public habitId!: string | null
 
   constructor(public router: Router,
-    private habitService: HabitService) {}
+    private habitService: HabitService
+    ) {}
 
   ngOnInit(): void {
     this.habits$ = this.habitService.getHabits()
@@ -28,8 +29,9 @@ export class HabitComponent implements OnInit,OnDestroy {
     
   }
 
-  public onDelete(index: number) {
-    this.habits.splice(index, 1);
+  public onDelete(index: string | null) {
+    console.log(index)
+    this.habitService.deleteHabit(index).subscribe()
   }
 
 }

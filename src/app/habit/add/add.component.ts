@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
-import { HABITS } from '../../data/habits';
 import { Habit } from 'src/models/habit';
 import { HabitService } from 'src/app/_services/habit.service';
 import { ThrowStmt } from '@angular/compiler';
 // import {writeJsonFile} from 'write-json-file';
 declare var require: any
+
 
 
 @Component({
@@ -20,6 +20,7 @@ export class AddComponent implements OnInit {
 
 
   habitForm = new FormGroup({
+    id: new FormControl(''),
     name: new FormControl(''),
     frequency: new FormControl(''),
     description: new FormControl(''),
@@ -36,27 +37,26 @@ export class AddComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (this.habitId != null){
     console.log(this.habitId)
     this.habitService.getHabit(this.habitId).subscribe(res => {
       this.habitForm.patchValue(res)
-    })
+    })}
 
 
   }
 
   public onSubmit() {
     const habit = this.habitForm.value as Habit;
-    var json = JSON.stringify(habit);
-    const fs = require('fs')
-    const fileName = 'assets/db.json';
-    const file = require(fileName)
-    file.this.habitId = json
-    fs.writeFile(fileName, JSON.stringify(file), function writeJSON(err: any) {
-      if (err) return console.log(err);
-      console.log(JSON.stringify(file));
-      console.log('writing to ' + fileName);
-    });;
-    this.exitForm();
+    if (this.router.url === '/habit/add'){
+      console.log('adding')
+       this.habitService.addHabit(habit).subscribe(() => this.router.navigate(['habit']))
+    }
+    else{
+      console.log("WTF?", this.router.url)
+    this.habitService.editHabit(this.habitId, habit).subscribe(() => this.router.navigate(['habit']))
+    }
+    
   }
 
   // public setEditForm(habit: Habit, index: number) {
@@ -70,11 +70,9 @@ export class AddComponent implements OnInit {
 
   exitForm() {
     this.habitForm.reset();
-    this.router.navigate(['/habits'])
+    this.router.navigate(['/habit'])
   }
 
 }
-function callback(arg0: string, json: string, arg2: string, callback: any) {
-  throw new Error('Function not implemented.');
-}
+
 

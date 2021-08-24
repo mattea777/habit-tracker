@@ -1,6 +1,6 @@
 <div class="all-habits">
     <h1>All Habits</h1>
-    <div *ngFor="let habit of (habits$ | async); let i = index">
+    <div *ngFor="let habit of (habits$ | async)">
       <mat-card>
         <mat-card-title>
           <mat-icon
@@ -16,10 +16,10 @@
           <mat-icon
             class="habit-icon"
             color="primary"
-            [routerLink]="[i, 'edit']"
+            [routerLink]="[habit.id, 'edit']"
             >edit</mat-icon
           >
-          <mat-icon class="habit-icon" color="warn" (click)="onDelete(i)"
+          <mat-icon class="habit-icon" color="warn" (click)='onDelete(habit.id.toString())'
             >remove_circle</mat-icon
           >
         </div>

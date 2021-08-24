@@ -12,6 +12,9 @@ const routes: Routes = [{ path: '', component: HabitComponent },
 },
 {
   path:'add', component:AddComponent
+},
+{
+  path: ':id/delete', component:HabitComponent
 }
 ];
 
